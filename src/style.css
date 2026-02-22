@@ -1,0 +1,281 @@
+/* TMT Treatise - Digital Book Aesthetic (Refined) */
+
+@import './deep_dive.css';
+
+:root {
+  /* Digital Book Palette */
+  --bg-paper: #FDF9F3;
+  /* Warmer, creamier antique paper */
+  --text-ink: #2A2A2A;
+  /* Soft charcoal, not harsh black */
+  --text-meta: #736b63;
+  /* Warm grey/brown for marginalia */
+  --accent-red: #A33B3B;
+  /* Classic rubrication red (softer) */
+
+  /* Grid - Classic Text Layout */
+  --main-measure: 680px;
+  /* Optimal reading line length */
+  --sidenote-width: 280px;
+  /* Generous margin for notes */
+  --gutter: 50px;
+
+  /* Typography - The Voice of the Book */
+  --font-reading: 'Crimson Pro', serif;
+  --font-ui: 'Inter', sans-serif;
+
+  --baseline: 1.6;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg-paper);
+  color: var(--text-ink);
+  font-family: var(--font-reading);
+  margin: 0;
+  padding: 0;
+  font-size: 20px;
+  /* Large, comfortable reading size */
+  line-height: var(--baseline);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Navigation - "The Bookmark" */
+.top-nav {
+  position: sticky;
+  top: 0;
+  background: rgba(253, 249, 243, 0.96);
+  /* Blend with paper */
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(163, 59, 59, 0.08);
+  /* Faint red hairline */
+  z-index: 1000;
+  height: 70px;
+  display: flex;
+  justify-content: center;
+}
+
+.nav-inner {
+  width: 100%;
+  max-width: 1400px;
+  padding: 0 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-family: var(--font-reading);
+  font-weight: 600;
+  font-style: italic;
+  font-size: 1.1rem;
+  color: var(--accent-red);
+}
+
+.nav-controls .nav-btn {
+  background: none;
+  border: none;
+  font-family: var(--font-ui);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-meta);
+  cursor: pointer;
+  margin-left: 30px;
+  transition: color 0.3s;
+}
+
+.nav-btn:hover {
+  color: var(--accent-red);
+}
+
+/* The Grid - Margin Annotation Layout */
+.treatise-grid {
+  display: grid;
+  /* Spacer | Main Text | Gutter | Sidenotes | Spacer */
+  grid-template-columns:
+    1fr var(--main-measure) var(--gutter) var(--sidenote-width) 1fr;
+  align-items: start;
+  padding-bottom: 150px;
+  padding-top: 60px;
+}
+
+/* Typography Elements */
+h1.chapter-title {
+  font-family: var(--font-reading);
+  font-size: 3.5rem;
+  font-weight: 200;
+  line-height: 1.1;
+  color: var(--text-ink);
+  margin: 0 0 40px 0;
+  letter-spacing: -0.02em;
+}
+
+.chapter-supertitle {
+  font-family: var(--font-ui);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--accent-red);
+  margin-bottom: 20px;
+  display: block;
+}
+
+/* Chapter Headers - Spanning Main Column */
+.chapter-header {
+  grid-column: 2;
+  margin-top: 100px;
+  margin-bottom: 50px;
+  border-top: 2px solid rgba(163, 59, 59, 0.1);
+  padding-top: 20px;
+
+  font-family: var(--font-reading);
+  font-size: 1.5rem;
+  font-style: italic;
+  color: var(--text-meta);
+}
+
+/* Section Blocks */
+.section-block {
+  grid-column: 2 / 5;
+  /* Spanning Main+Gutter+Side to allow alignment */
+  display: flex;
+  /* Using Flexbox for side-by-side alignment */
+  gap: var(--gutter);
+  margin-bottom: 60px;
+  /* Rhythm between sections */
+  position: relative;
+  /* No boxes, just content */
+}
+
+/* The Main Provision Text */
+.provision-text {
+  flex: 0 0 var(--main-measure);
+  font-size: 1.25rem;
+  text-align: justify;
+  /* Classic book alignment */
+  hyphens: auto;
+}
+
+.provision-number {
+  position: absolute;
+  left: -40px;
+  /* Hanging punctuation style */
+  font-family: var(--font-ui);
+  font-weight: 500;
+  font-size: 0.85rem;
+  color: var(--accent-red);
+  margin-top: 6px;
+}
+
+/* The Margin Annotations (Sidenotes) */
+.sidenote-column {
+  flex: 0 0 var(--sidenote-width);
+  /* Essential: Sidenotes start at the same vertical position as the provision */
+  padding-top: 4px;
+}
+
+.sidenote {
+  font-family: var(--font-ui);
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: var(--text-meta);
+  margin-bottom: 30px;
+
+  /* Interactive feel */
+  transition: color 0.3s;
+  cursor: default;
+}
+
+.sidenote:hover {
+  color: var(--text-ink);
+  /* Darken on read */
+}
+
+.sidenote h4 {
+  font-family: var(--font-ui);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--accent-red);
+  margin: 0 0 6px 0;
+  font-weight: 600;
+}
+
+/* Library View (Home) */
+.library-container {
+  max-width: 900px;
+  margin: 80px auto;
+  padding: 0 40px;
+}
+
+.lib-header {
+  font-family: var(--font-reading);
+  font-size: 4rem;
+  font-weight: 300;
+  /* Thin, elegant header */
+  margin-bottom: 80px;
+  text-align: center;
+  color: var(--text-ink);
+}
+
+.statute-entry {
+  margin-bottom: 60px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.statute-entry:hover {
+  transform: translateX(10px);
+  /* Subtle indentation on hover */
+}
+
+.statute-entry h2 {
+  font-size: 1.8rem;
+  font-weight: 400;
+  margin-bottom: 10px;
+}
+
+.statute-entry p {
+  font-family: var(--font-reading);
+  font-style: italic;
+  color: var(--text-meta);
+  font-size: 1.1rem;
+}
+
+/* Responsive Book Layout */
+@media (max-width: 1200px) {
+  .treatise-grid {
+    grid-template-columns: 40px 1fr 40px;
+    /* Mobile grid */
+  }
+
+  .section-block {
+    grid-column: 2;
+    flex-direction: column;
+  }
+
+  .provision-text {
+    flex: auto;
+    text-align: left;
+  }
+
+  .provision-number {
+    position: static;
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  .sidenote-column {
+    flex: auto;
+    width: 100%;
+    margin-top: 20px;
+    padding-left: 20px;
+    border-left: 2px solid rgba(163, 59, 59, 0.2);
+    /* Red line for notes on mobile */
+  }
+}

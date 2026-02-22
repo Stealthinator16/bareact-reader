@@ -1,0 +1,109 @@
+/* Deep Dive Styles - Minimalist */
+
+.sidenote {
+    margin-bottom: 2rem;
+    padding: 0;
+    border: none;
+    background: transparent;
+    box-shadow: none;
+    font-size: 0.9em;
+    line-height: 1.6;
+}
+
+.sidenote:hover {
+    transform: none;
+    box-shadow: none;
+}
+
+.meta-tag {
+    display: block;
+    font-size: 0.65em;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+    color: #999;
+    /* Neutral grey, ensuring no "color based thing" perception */
+    background: transparent;
+    padding: 0;
+}
+
+/* Case Law - Text Only */
+.case-law {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+}
+
+.case-law .meta-tag {
+    background: transparent;
+    color: #adb5bd;
+}
+
+.case-law h4 {
+    font-family: "Playfair Display", serif;
+    font-size: 1.1em;
+    margin: 0 0 0.25rem 0;
+    color: #d63384;
+    /* Distinct color for Case Name as requested (Pink/Magenta) */
+    font-weight: 700;
+}
+
+.case-law .citation {
+    font-family: monospace;
+    font-size: 0.75em;
+    color: #868e96;
+    margin-bottom: 0.5rem;
+    display: block;
+    font-style: normal;
+}
+
+.case-law p {
+    color: var(--text-body);
+    margin: 0;
+    font-style: italic;
+    /* Differentiate specific case summary text slightly */
+}
+
+/* Tech Deep Dive - Text Only */
+.tech-deep-dive {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+}
+
+.tech-deep-dive .meta-tag {
+    background: transparent;
+    color: #adb5bd;
+}
+
+.tech-deep-dive h4 {
+    font-family: var(--font-ui, sans-serif);
+    font-size: 0.9em;
+    font-weight: 700;
+    margin: 0 0 0.25rem 0;
+    color: var(--text-meta);
+    /* Keep neutral or match body? User said only case name to diff color. Let's keep this standard. */
+    text-transform: uppercase;
+}
+
+.tech-deep-dive p {
+    color: var(--text-body);
+    margin: 0;
+}
+
+/* Dark Mode Overrides */
+@media (prefers-color-scheme: dark) {
+    .case-law h4 {
+        color: #ff6b6b;
+        /* Softer pink/red for dark mode */
+    }
+
+    .meta-tag {
+        color: #6c757d;
+    }
+
+    .case-law .citation {
+        color: #adb5bd;
+    }
+}
