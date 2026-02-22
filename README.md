@@ -1,6 +1,6 @@
-# TMT Reader
+# Bareact Reader
 
-Digital reader for Indian TMT (Technology, Media, Telecom) law statutes. Presents legislative text in an editorial, book-like layout with margin annotations for commentary, case law references, and technical deep dives.
+Digital reader for Indian statutes. Presents legislative text in an editorial, book-like layout with margin annotations for commentary, case law references, and technical deep dives.
 
 ## Features
 
